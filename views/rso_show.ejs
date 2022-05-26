@@ -1,0 +1,43 @@
+<% include ./partials/header %>
+
+<div class="ui main text container segment">
+	<div class="ui large header"><%= rso.name %></div>
+	<a class="ui tag label"><%= rso.member_count %> members</a>
+	<div class="ui divider"></div>
+	<div class="ui top attached">
+		<div class="item">
+			<img class="ui centered rounded image" src="<%= rso.image %>">
+			<div class="ui divider"></div>
+			
+			<div class="description">
+				
+				<!-- I used the %- in the following <P> element 
+					as opposed to %= so that the user can enter markup to
+					format their text as desired (i.e. <strong>, <p>, etc.).
+					This can pose security risks because malicious JS script
+					can also be run, but we can "sanitize this later
+				-->
+				<p><%- rso.description %></p>
+				
+			</div>
+			<div class="ui divider"></div>
+			
+			<%if(rso.owner_id == user.userid){ %>
+				<% if(rso.member_count >= 5){ %>
+					<a class="ui blue basic button" href="/events/new_rso_event/<%= rso.rso_id %>" method="GET">Create RSO Event</a>
+				<% } %>
+				<a class="ui orange basic button" href="/rso/<%= rso.rso_id %>/edit" method="GET">Edit</a>
+				<form id="delete" action="/rso/<%= rso.rso_id %>?_method=DELETE" method="POST">
+					<button class="ui red basic button">Delete</button>
+				</form>							   
+			<% } %>
+			<% if(!isMember){ %>
+				<a class="ui orange basic button" href="/rso/<%= rso.rso_id %>/join" method="GET">Join</a>
+			<% } %>
+			
+		</div>
+	</div>
+</div>
+
+
+<% include ./partials/footer %>

@@ -1,0 +1,29 @@
+<% include ./partials/header %>
+
+<div class="ui main text container segment">
+	<div class="ui huge header">New RSO</div>
+	<form class="ui form" action="/rso" method="POST">
+		
+		<div class="field">
+			<label>RSO Name</label>
+			<input type="text" name="newRso[name]" placeholder="Name">
+		</div>
+		
+		<div class="field">
+			<label>Image</label>
+			<input type="text" name="newRso[image]" placeholder="Image URL">
+		</div>
+		
+		<input type="hidden" id="member_count" name="newRso[member_count]" value="0">
+		<input type="hidden" id="owner_id" name="newRso[owner_id]" value="0">
+			
+		<div class="field">
+			<label>Description</label>
+			<textarea name="newRso[description]"></textarea>
+		</div>
+		
+		<input class="ui inverted violet button" type="submit">
+	</form>
+</div>
+
+<% include ./partials/footer %>

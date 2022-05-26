@@ -1,0 +1,97 @@
+<% include ./partials/header %>
+
+		
+	<div class="ui main very raised text container segment">
+		<h2 class="ui center aligned icon header">
+  			<i class="circular globe icon"></i>
+  			PUBLIC EVENTS
+			<div class="ui divider"></div>
+		</h2>
+		
+		<div class="ui divided items">
+
+			<% publicEvents.forEach(function(event){ %>
+				<div class="item">
+					<div class="image">
+					  <img src="<%= event.image %>">
+					</div>
+					<div class="content">
+					  <a href="/events/<%= event.event_id %>" class="header"><%= event.name %></a>
+					  <div class="meta">
+						<span class="date"><strong>Date: </strong><%= event.date %>  <strong>Time: </strong><%= event.time %></span>
+					  </div>
+					  <div class="description">
+						<p><%= event.description.substring(0,100) %>... %></p>
+					  </div>
+					</div>
+				</div>
+			<% }) %>
+			
+		</div>
+		
+		<h2 class="ui center aligned icon header">
+  			<i class="circular lock icon"></i>
+  			PRIVATE EVENTS
+			<div class="ui divider"></div>
+		</h2>
+		
+		<div class="ui divided items">
+
+			<% privateEvents.forEach(function(event){ %>
+				<div class="item">
+					<div class="image">
+					  <img src="<%= event.image %>">
+					</div>
+					<div class="content">
+					  <a href="/events/<%= event.event_id %>" class="header"><%= event.name %></a>
+					  <div class="meta">
+						<span class="date"><strong>Date: </strong><%= event.date %>  <strong>Time: </strong><%= event.time %></span>
+					  </div>
+					  <div class="description">
+						<p><%= event.description.substring(0,100) %>...</p>
+					  </div>
+					</div>
+				</div>
+			<% }) %>
+			
+		</div>
+		
+		<h2 class="ui center aligned icon header">
+  			<i class="circular users icon"></i>
+  			RSO EVENTS
+			<div class="ui divider"></div>
+		</h2>
+		
+		<div class="ui divided items">
+
+			<% rsoEvents.forEach(function(event){ %>
+				<div class="item">
+					<div class="image">
+					  <img src="<%= event.image %>">
+					</div>
+					<div class="content">
+					  <a href="/events/<%= event.event_id %>" class="header"><%= event.name %></a>
+					  <div class="meta">
+						<span class="date"><strong>Date: </strong><%= event.date %>  <strong>Time: </strong><%= event.time %></span>
+					  </div>
+					  <div class="description">
+						<p><%= event.description.substring(0,100) %>... %></p>
+					  </div>
+					</div>
+				</div>
+			<% }) %>
+			
+		</div>
+		
+		
+		
+		
+		
+		
+	</div>
+		
+
+<% include ./partials/footer %>
+
+
+

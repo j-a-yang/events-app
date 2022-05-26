@@ -1,0 +1,45 @@
+<% include ./partials/header %>
+
+<div class="ui main text container segment">
+	<div class="ui huge header">New <%= rso.name %> Event</div>
+	<form class="ui form" action="/events/new_rso_event" method="POST">
+		
+		<div class="field">
+			<label>Event Name</label>
+			<input type="text" name="newRsoEvent[name]" placeholder="Name of the Event">
+		</div>
+		
+		<div class="field">
+			<label>Location</label>
+			<input type="text" name="newRsoEvent[location_name]" placeholder="Location">
+		</div>
+		
+		<div class="field">
+			<label>Date</label>
+			<input type="text" name="newRsoEvent[date]" placeholder="Date">
+		</div>
+		
+		<div class="field">
+			<label>Time</label>
+			<input type="text" name="newRsoEvent[time]" placeholder="Time">
+		</div>
+		
+		<div class="field">
+			<label>Image</label>
+			<input type="text" name="newRsoEvent[image]" placeholder="Image URL">
+		</div>
+		
+		<input type="hidden" id="rso_id" name="newRsoEvent[rso_id]" value="0">
+		<input type="hidden" id="admin_id" name="newRsoEvent[admin_id]" value="0">
+		<input type="hidden" id="type" name="newRsoEvent[type]" value="0">
+			
+		<div class="field">
+			<label>Description</label>
+			<textarea name="newRsoEvent[description]"></textarea>
+		</div>
+		
+		<input class="ui inverted violet button" type="submit">
+	</form>
+</div>
+
+<% include ./partials/footer %>

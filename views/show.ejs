@@ -1,0 +1,46 @@
+<% include ./partials/header %>
+
+<div class="ui main text container segment">
+	<div class="ui large header"><%= event.name %></div>
+	<div class="ui small header"><%= event.location_name %></div>
+	<a class="ui tag label"><%= event.date %></a>
+	<a class="ui tag label"><%= event.time %></a>
+	<div class="ui divider"></div>
+	<div class="ui top attached">
+		<div class="item">
+			<img class="ui centered rounded image" src="<%= event.image %>">
+			<div class="ui divider"></div>
+			<div class="content">
+				
+				<!-- note: toDateString() used to format the date -->
+				
+			</div>
+			<div class="description">
+				
+				<!-- I used the %- in the following <P> element 
+					as opposed to %= so that the user can enter markup to
+					format their text as desired (i.e. <strong>, <p>, etc.).
+					This can pose security risks because malicious JS script
+					can also be run, but we can "sanitize this later
+				-->
+				<p><%- event.description %></p>
+				
+			</div>
+			<div class="ui divider"></div>
+			
+			<%if(event.admin_id == user.userid){ %>
+				<a class="ui orange basic button" href="/events/<%= event.event_id %>/edit" method="GET">Edit</a>
+				<form id="delete" action="/events/<%= event.event_id %>?_method=DELETE" method="POST">
+					<button class="ui red basic button">Delete</button>
+				</form>							   
+			<% } %>
+			<% if(!isAttending) { %>
+				<a class="ui orange basic button" href="/events/<%= event.event_id %>/attend" method="GET">Attend</a>
+			<% } %>
+			
+			
+		</div>
+	</div>
+</div>
+
+<% include ./partials/footer %>

@@ -1,0 +1,37 @@
+<% include ./partials/header %>
+
+		
+	<div class="ui main very raised text container segment">
+		<h2 class="ui center aligned header">
+  			My Events
+			<div class="ui divider"></div>
+		</h2>
+		
+		<div class="ui divided items">
+
+			<% myEvents.forEach(function(event){ %>
+				<div class="item">
+					<div class="image">
+					  <img src="<%= event.image %>">
+					</div>
+					<div class="content">
+					  <a href="/events/<%= event.event_id %>" class="header"><%= event.name %></a>
+					  <div class="meta">
+						<span class="date"><strong>Date: </strong><%= event.date %>  <strong>Time: </strong><%= event.time %></span>
+					  </div>
+					  <div class="description">
+						<p><%= event.description.substring(0,100) %>... %></p>
+					  </div>
+					</div>
+				</div>
+			<% }) %>
+			
+		</div>
+		
+	</div>
+		
+
+<% include ./partials/footer %>
+
+
+

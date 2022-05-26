@@ -1,0 +1,48 @@
+<% include ./partials/header %>
+
+		
+	<div class="ui main very raised text container segment">
+		<h2 class="ui center aligned icon header">
+  			My RSO's
+			<div class="ui divider"></div>
+		</h2>
+		
+		<div class="ui divided items">
+
+			<% myRsos.forEach(function(rso){ %>
+				<div class="item">
+    				<div class="ui tiny image">
+     					<img src="<%= rso.image %>">
+    				</div>
+    				<div class="middle aligned content">
+      					<a href="/rso/<%= rso.rso_id %>"><%= rso.name %></a>
+    				</div>
+  				</div>
+			<% }) %>
+			
+		</div>
+		
+		<h2 class="ui center aligned header">
+  			Other RSO's
+			<div class="ui divider"></div>
+		</h2>
+		
+		<div class="ui divided items">
+
+			<% otherRsos.forEach(function(rso){ %>
+				<div class="item">
+    				<div class="ui tiny image">
+     					<img src="<%= rso.image %>">
+    				</div>
+    				<div class="middle aligned content">
+      					<a href="/rso/<%= rso.rso_id %>"><%= rso.name %></a>
+    				</div>
+  				</div>
+			<% }) %>
+			
+		</div>
+		
+	</div>
+		
+
+<% include ./partials/footer %>
